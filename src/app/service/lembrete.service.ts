@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/commom/http/';
 
 
 import { environment } from './../../environments/environment';
@@ -7,6 +6,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { Lembrete } from '../interface/lembrete';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -19,10 +19,10 @@ export class LembreteService {
 
 
 
-getListaLembretes(): Observable<Lembrete[]> {
-  const url = `${environment.lembretesApiUrl}/lembrete`;
-  return this.http.get<Lembrete>(url);
-}
+  getListaLembretes(): Observable<Lembrete[]> {
+    const url = `${environment.lembretesApiUrl}/lembrete`;
+    return this.http.get<Lembrete[]>(url);
+  }
 
 
   getLembrete(id: number): Observable<Lembrete> {
@@ -45,4 +45,4 @@ getListaLembretes(): Observable<Lembrete[]> {
     return this.http.delete<Lembrete>(url);
   }
 
-  }
+}
